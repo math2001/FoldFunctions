@@ -1,5 +1,8 @@
 # -*- encoding: utf-8 -*-
 
+# repr is used instead of print in this example as this file is ran by sublime text, and
+# we don't want to pollute the console on start up.
+
 def hello_world(arg1, arg2):
     for i in range(10):
         if i % 2 == 0:
