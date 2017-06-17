@@ -43,4 +43,7 @@ class FoldPythonFunctions(sublime_plugin.TextCommand):
             end = self.get_lines_in_function(start)
             regions[i] = sublime.Region(start - 1, end)
         v.fold(regions)
+
+    def is_enabled(self):
+        return 'source.python' in self.view.scope_name(0)
  
