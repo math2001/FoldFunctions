@@ -52,12 +52,7 @@ class FoldJavascriptFunctions(sublime_plugin.TextCommand):
     def moveTill(self, char_stop, pt, increment):
         char = self.view.substr(pt)
         size = self.view.size()
-        counter624 = 0
         while char != char_stop and 0 <= pt < size:
-            counter624 += 1
-            if counter624 > 100:
-                print("end up counter624")
-                return False # counter624
             pt += 1
             char = self.view.substr(pt)
         return pt
@@ -73,3 +68,6 @@ class FoldJavascriptFunctions(sublime_plugin.TextCommand):
         self.view.run_command('expand_selection', {'to': "brackets"})
         self.view.run_command('fold')
         selection.clear()
+
+    def is_enabled(self):
+        return 'source.js' in self.view.scope_name(0)

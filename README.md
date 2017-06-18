@@ -1,8 +1,13 @@
 # FoldFunctions
 
-This package contains a little single command that folds every functions in a python file.
+This package folds every functions in the current file, so that you can have a global view of it, and then unfold a few, so that you don't have to scroll a lot, skipping over the functions you're not interested in at the moment.
 
-The good part is that it supports PEP8 with arguments on the multiple lines, like so:
+For now, the following language are supported:
+
+- Python :heart:
+- JavaScript
+
+The good part is that it supports arguments on  multiple lines, like so (in this case, it's python):
 
 ```python
 def my_function(argument_number_one, argument_number_two,
@@ -43,15 +48,13 @@ It depends of your needs:
 
 ## Usage
 
-
 The command is accessible from the command palette. 
 
 - <kbd>ctrl+shift+p</kbd>
-- Search for `Fold Python Functions`
+- Search for `Fold Functions`
 - hit <kbd>enter</kbd>
 
-*Make sure the current view has the python syntax on*
-
+Note: The caption will be the same, whichever supported language file you are editing, but the actual command will change. :wink:
 
 ### Adding a key binding
 
@@ -65,7 +68,12 @@ It's up to you, but I prefer to have this command bound to this command, in my c
     "context": [
         {"key": "selector", "operand": "source.python"}
     ]
+},
+{
+    "keys": ["alt+f"],
+    "command": "fold_javascript_functions",
+    "context": [
+        {"key": "selector", "operand": "source.js"}
+    ]
 }
 ```
-
-The `context` key makes this shortcut only available when you're coding in python (so that you can bind this same shortcut to a command that folds JavaScript functions for example)

@@ -1,10 +1,10 @@
 [
     {
-        "caption": "Fold Python Functions",
+        "caption": "Fold Functions",
         "command": "fold_python_functions"
     },
     {
-        "caption": "Fold Javascript Functions",
+        "caption": "Fold Functions",
         "command": "fold_javascript_functions"
     }
 ]
