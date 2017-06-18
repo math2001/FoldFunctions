@@ -46,3 +46,30 @@ class FoldPythonFunctions(sublime_plugin.TextCommand):
     def is_enabled(self):
         return 'source.python' in self.view.scope_name(0)
         
+
+class FoldJavascriptFunctions(sublime_plugin.TextCommand):
+
+    def moveTill(self, char_stop, pt, increment):
+        char = self.view.substr(pt)
+        size = self.view.size()
+        counter624 = 0
+        while char != char_stop and 0 <= pt < size:
+            counter624 += 1
+            if counter624 > 100:
+                print("end up counter624")
+                return False # counter624
+            pt += 1
+            char = self.view.substr(pt)
+        return pt
+
+    def run(self, edit):
+        v = self.view
+        selection = v.sel()
+        selection.clear()
+        functions_name = v.find_by_selector("meta.function.declaration.js")
+        for i, function_name in enumerate(functions_name):
+            functions_name[i] = sublime.Region(self.moveTill('{', function_name.end(), 1) + 1)
+        selection.add_all(functions_name)
+        self.view.run_command('expand_selection', {'to': "brackets"})
+        self.view.run_command('fold')
+        selection.clear()
