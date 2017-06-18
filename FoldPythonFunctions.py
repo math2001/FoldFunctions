@@ -17,7 +17,7 @@ class FoldPythonFunctions(sublime_plugin.TextCommand):
         while going:
             point = v.text_point(row, 0)
             line = v.line(point)
-            if line.begin() == v.size():
+            if line.end() >= v.size():
                 going = False
             if self.get_indentation(point) >= base_indentation or line.empty():
                 row += 1
@@ -45,4 +45,4 @@ class FoldPythonFunctions(sublime_plugin.TextCommand):
 
     def is_enabled(self):
         return 'source.python' in self.view.scope_name(0)
- 
+        
