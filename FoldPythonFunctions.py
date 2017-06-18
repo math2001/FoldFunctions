@@ -32,7 +32,6 @@ class FoldPythonFunctions(sublime_plugin.TextCommand):
             else:
                 return v.text_point(row, 0) - 1
 
-
     def run(self, edit):
         v = self.view
         selection = v.sel()
