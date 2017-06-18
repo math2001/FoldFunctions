@@ -13,6 +13,8 @@ def my_function(argument_number_one, argument_number_two,
         print('It really does!')
 ```
 
+![Example of folding with this package - FoldPythonFunctions - through the command palette of Sublime Text](fold-python-functions.gif)
+
 ## Installation
 
 Because it is not available on package control for now, you have to add this repo "manually" to your list.
@@ -51,7 +53,7 @@ The command is accessible from the command palette.
 *Make sure the current view has the python syntax on*
 
 
-### Adding a keybinding
+### Adding a key binding
 
 It's up to you, but I prefer to have this command bound to this command, in my case, <kbd>alt+f</kbd>. So, here's what I've done:
 
