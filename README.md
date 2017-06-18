@@ -18,7 +18,7 @@ def my_function(argument_number_one, argument_number_two,
         print('It really does!')
 ```
 
-![Example of folding with this package - FoldFunctions - through the command palette of Sublime Text](fold-python-functions.gif)
+![Example of folding with this package - FoldFunctions - through the command palette of Sublime Text](fold-functions.gif)
 
 ## Installation
 
