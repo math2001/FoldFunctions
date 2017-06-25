@@ -36,7 +36,7 @@ class FoldPythonFunctions(sublime_plugin.TextCommand):
         v = self.view
         selection = v.sel()
         selection.clear()
-        regions = v.find_by_selector("punctuation.section.function.begin.python")
+        regions = v.find_by_selector("meta.function.python - punctuation.section.function.begin.python")
         for i, region in enumerate(regions):
             start = v.text_point(v.rowcol(region.begin())[0] + 1, 0)
             end = self.get_lines_in_function(start)
