@@ -39,9 +39,13 @@ class FoldPythonFunctions(sublime_plugin.TextCommand):
         regions = v.find_by_selector("meta.function.python - punctuation.section.function.begin.python")
         for i, region in enumerate(regions):
             start = v.text_point(v.rowcol(region.begin())[0] + 1, 0)
-            end = self.get_lines_in_function(start)
+            base_indentation_line = start
+            while v.line(base_indentation_line).empty():
+                base_indentation_line += 1
+            end = self.get_lines_in_function(base_indentation_line)
             regions[i] = sublime.Region(start - 1, end)
-        v.fold(regions)
+        # v.fold(regions)
+        selection.add_all(regions)
 
     def is_enabled(self):
         return 'source.python' in self.view.scope_name(0)
