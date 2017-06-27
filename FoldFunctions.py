@@ -44,8 +44,7 @@ class FoldPythonFunctions(sublime_plugin.TextCommand):
                 base_indentation_line += 1
             end = self.get_lines_in_function(base_indentation_line)
             regions[i] = sublime.Region(start - 1, end)
-        # v.fold(regions)
-        selection.add_all(regions)
+        v.fold(regions)
 
     def is_enabled(self):
         return 'source.python' in self.view.scope_name(0)
